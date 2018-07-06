@@ -1,0 +1,115 @@
+<htmlpageheader name="myHeader">
+	<div style="text-align: center;">{$Наша компания.Лого}</div>
+</htmlpageheader>
+<table cellpadding="2" cellspacing="0" width="660">
+	<colgroup>
+		<col width="380" />
+		<col width="50" />
+		<col width="230" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">ИНН</font> {$Наша компания.ИНН} <font color="#666666">ОГРНИП</font> {$Наша компания.ОГРН}</p>
+			</td>
+			<td rowspan="2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" valign="BOTTOM" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">Сч. №</font></p>
+			</td>
+			<td rowspan="2" style="border: 1px solid #000000; padding: 0.02in" valign="BOTTOM" width="187">
+				<p class="western" lang="ru-RU">{$Наша компания.Расчетный счет}</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">Получатель</font><br />
+				{if {$Наша компания.Вид} == 'Юр.лицо'}
+					 {$Наша компания.Юридическое название компании}</p>
+				{else}
+					 {$Наша компания.Физическое лицо}</p>
+				{/if}
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">Банк получателя </font><br />
+				<font color="#000000">{$Наша компания.Банк}</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">БИК</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in" width="230">
+				<p class="western" lang="ru-RU">{$Наша компания.БИК}</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">Сч. №</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in" width="230">
+				<p class="western" lang="ru-RU">{$Наша компания.Кор. счет}</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h1>Счет № {$Номер}&nbsp; &nbsp;от {$Дата выставления}</h1>
+<p><font color="#666666">Плательщик</font> {if {$На кого.Вид} == 'Юр.лицо' } {$На кого.Юридическое название}{/if}{if {$На кого.Вид} == 'Физ.лицо' } {$На кого.ФИО}{/if}<br>
+{if {$Наша компания.Вид} == 'Юр.лицо'}
+	 <font color="#666666">Получатель</font> {$Наша компания.Юридическое название компании}
+{else}
+	 <font color="#666666">Получатель</font> {$Наша компания.Физическое лицо}
+{/if}
+</p>
+<table cellpadding="7" cellspacing="0" width="660">
+	<tbody>
+		<tr valign="TOP">
+			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+				<p class="western" lang="ru-RU"><b>№</b></p>
+			</td>
+			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="340">
+				<p class="western" lang="ru-RU"><b>Услуга</b></p>
+			</td>
+			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+				<p class="western" lang="ru-RU"><b>Цена</b></p>
+			</td>
+			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU"><b>Количество</b></p>
+			</td>
+			<td bgcolor="#e6e6e6" style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="86">
+				<p class="western" lang="ru-RU"><b>Сумма</b></p>
+			</td>
+		</tr>
+		<tr style="display: none; height: 0px;">
+			<td colspan="5" valign="TOP" width="660" style="padding: 0; border: none;">{foreach from="{$Позиции счета}" name="Позиции счета" item=subtable}</td>
+		</tr>
+		<tr valign="TOP">
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+				<p class="western" lang="ru-RU">{$smarty.foreach.Позиции счета.iteration}</p>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="340">
+				<p class="western" lang="ru-RU">{if {$Выбор из прайс-листа} == 'Нет' } {$Позиции счета.Наименование}{/if}{if {$Выбор из прайс-листа} == 'Да' } {$Позиции счета.Наименование из прайс-листа}{/if}</p>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+				<p class="western" lang="ru-RU">{$Позиции счета.Цена}</p>
+			</td>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU">{$Позиции счета.Кол-во}</p>
+			</td>
+			<td style="border: 1px solid #000000; padding: 0in 0.08in" width="86">
+				<p class="western" lang="ru-RU">{$Позиции счета.Итого}</p>
+			</td>
+		</tr>
+		<tr style="display: none; height: 0px; padding: 0;">
+			<td colspan="5" valign="TOP" width="660" style="padding: 0; border: none;">{/foreach}</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p class="arial"><i><b>Всего к оплате: {SumFormat value="{$Сумма}" digits=2} р.<br>
+{SumPropis value="{$Сумма}" caps=1}<br>
+НДС не облагается</b></i></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Директор _________________________________ {$Наша компания.Руководитель}</p>
