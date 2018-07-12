@@ -1,0 +1,33 @@
+<htmlpageheader name="myHeader">
+	<div style="text-align: center;">{$Наша компания.Лого}</div>
+</htmlpageheader>
+<p style="text-align: center;">
+	{$nomer = (int){$Номер}|regex_replace:'/[[:space:]]/':'' }
+	{$nomerDogovora = (int){$К Договору.Номер}|regex_replace:'/[[:space:]]/':'' }
+	<span style="font-size:11pt;">
+		<strong class="dogovorTitle">ДОПОЛНИТЕЛЬНОЕ СОГЛАШЕНИЕ № {$nomer}<br>к договору № {$nomerDogovora}</strong> 
+	</span>
+</p>
+<table border="0" width="100%">
+	<tbody>
+		<tr>
+			<td style="border:none;">{$Дата}</td>
+			<td align="right" style="border:none;">г. {$Наша компания.Город}</td>
+		</tr>
+	</tbody>
+</table>
+<p>&emsp;{if {$Компания.Вид} == "ИП"}{$Компания.Название}, именуемый в дальнейшем «Заказчик»», в лице {$Компания.В лице...}, действующего на основании Свидетельства о регистрации с одной стороны{else}{if {$Компания.Вид} == "Юр.лицо"}{$Компания.Юридическое название}, именуемое в дальнейшем «Заказчик», в лице генерального директора {$Компания.В лице...}, действующего на основании Устава с одной стороны{else}{$Компания.ФИО}, {if {$Компания.Пол} == "Мужской"}именуемый{else}именуемая{/if} в дальнейшем «Заказчик»{/if} {/if} и {$Компания.Наша компания} (ОГРНИП:{$Наша компания.ОГРН} ИНН:{$Наша компания.ИНН} от 27.01.2012 г.), именуемый в дальнейшем «Исполнитель», с другой стороны, вместе именуемые «Стороны», заключили настоящее Дополнительное соглашение о нижеследующем.</p>
+{$Предмет соглашения}
+
+
+<htmlpagefooter name="myFooter">
+	<p style="text-align: right; padding-bottom: 5mm;">____________________/Исполнитель&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ____________________/Заказчик&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+	<p style="text-align: center;"><font face="Tahoma, sans-serif" style="font-size: 8pt;">{if {$Наша компания.Город} == "Москва"}Black Mamonts{else}Студия «SITE-ELITE»{/if}. {if {$Наша компания.Город} == "Тверь"}Тверь, переулок Свободный, д. 3, корп. 2, оф. 8{else}{$Наша компания.Адрес}{/if}</font></p>
+	<p align="CENTER" lang="en-US"><font face="Tahoma, sans-serif" style="font-size: 8pt;">тел.: {$Наша компания.Телефон}</font></p>
+	
+	{if {$Наша компания.Город} == "Москва"}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.bmamonts.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@bmamonts.ru</u> </font></p>
+	{else}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.st-lt.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@st-lt.ru</u> </font></p>
+	{/if}
+</htmlpagefooter>
