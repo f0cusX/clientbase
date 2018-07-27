@@ -1,0 +1,91 @@
+<!--{if {$Услуга}|strpos:'Домен' !== false}Доменное Имя{else}Обслуживание сайта{/if} {$Домен}, требуется продление!-->
+<p>Здравствуйте!</p>
+
+{$text = ' '}
+
+{if {$Услуга}|strpos:'Хостинг' !== false || {$Услуга}|strpos:'Домен' !== false}
+	{if {$Услуга}|strpos:'Домен' !== false}
+		{if {$Услуга}|strpos:'Хостинг' !== false}
+			{$textStart = "регистрации Вашего доменного имени {$Домен}, а также хостинга"}
+		{else}
+			{$textStart = "регистрации Вашего доменного имени {$Домен}"}
+		{/if}
+	{else}
+		{$textStart = 'регистрации Вашего хостинга'}
+	{/if}
+
+	{if {$Услуга}|strpos:'Корп. почта' !== false}
+		{if {$Услуга}|strpos:'Хостинг' !== false}
+			{$text = ","}
+		{else}
+			{$text = ", а так же"}
+		{/if}
+
+		{if {$Услуга}|strpos:'Обслуживание' !== false}
+			{$text = "$text корпоративной почты и обслуживания."}
+		{else}
+			{$text = "$text корпоративной почты."}
+		{/if}
+	{else}
+		{if {$Услуга}|strpos:'Обслуживание' !== false}
+			{$text = "и обслуживания."}
+		{else}
+			{$text = "."}
+		{/if}
+	{/if}
+{else}
+	{if {$Услуга}|strpos:'Обслуживание' !== false}
+		{if {$Услуга}|strpos:'Корп. почта' !== false}
+			{$textStart = "обслуживания Вашего сайта и корпоративной почты."}
+		{else}
+			{$textStart = "корпоративной почты."}
+		{/if}
+	{else}
+		{if {$Услуга}|strpos:'Корп. почта' !== false}
+			{$textStart = "обслуживания Вашей корпоративной почты."}
+		{/if}
+	{/if}
+{/if}
+
+{$test = floor((strtotime({$Дата оплаты}) - strtotime({$smarty.now|date_format})) / 86400)}
+<p>Заканчивается срок {$textStart}{$text}</p>
+<p>Если Вы не оплатите вовремя продление услуг - домен отключится {$Дата оплаты} (осталось дней: {$test}), а спустя 31 дн. домен удалится.</p>
+<p>Оплатить продление услуг вы можете по счету во вложении [если файл приложен)</p>
+<p></p>
+<p></p>
+<p></p>
+<div style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 15px;">- -</div>
+
+<div style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 15px;">&nbsp;</div>
+
+<div style="color: rgb(0, 0, 0); font-family: Arial, sans-serif; font-size: 15px;">
+<table border="0" cellpadding="0" cellspacing="0" new="" roman="" style="font-family: " times="">
+	<tbody>
+		<tr valign="top">
+			<td style="padding-left: 10px; width: 10px; padding-right: 10px;"><img alt="photo" height="65" src="http://st-lt.ru/uploads/mailservice.png" style="border-radius: 0px; height: 65px; max-width: 120px; width: 65px;" width="65" /></td>
+			<td style="border-right: 1px solid rgb(69, 102, 142);">&nbsp;</td>
+			<td style="text-align: initial; font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 12px; line-height: normal; font-family: Arial; color: rgb(100, 100, 100); padding: 0px 10px;">
+			<div><strong>Olga Tyrskaya</strong><br />
+			Document Manager, Site Elite Studio</div>
+
+			<div style="color: rgb(141, 141, 141); padding: 5px 0px;"><a class="daria-goto-anchor" href="tel:+74822633202" rel="noopener noreferrer" style="color: rgb(246, 61, 32); text-decoration: none;" target="_blank">+7 4822 63-32-02</a> <span style="color: rgb(69, 102, 142); display: inline-block;">|</span> <span style="display: inline-block;"><a class="daria-goto-anchor" href="tel:+7 904 354 77 74" rel="noopener noreferrer" style="color: rgb(141, 141, 141); text-decoration: none;" target="_blank">+7 904 354-777-4</a></span> <span style="color: rgb(69, 102, 142); display: inline-block;">|</span> <span style="display: inline-block; white-space: nowrap;"><a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="http://st-lt.ru/" rel="noopener noreferrer" style="color: rgb(141, 141, 141); text-decoration: none;" target="_blank">st-lt.ru</a></span> <span style="color: rgb(69, 102, 142); display: inline-block;">|</span> <a class="ns-action" data-click-action="common.go" data-params="new_window&amp;url=#compose?mailto=olga@st-lt.ru" href="mailto:olga@st-lt.ru" style="color: rgb(0, 0, 0);">olga@st-lt.ru</a><br />
+			<a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="https://goo.gl/2mgTSE" rel="noopener noreferrer" style="color: rgb(107, 107, 107); text-decoration: none; display: inline-block; line-height: 24px;" target="_blank">Tver office: 170100, per.Svobodny, d.3/2, of.8</a><br />
+			<a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="https://goo.gl/nZ21ZY" rel="noopener noreferrer" style="color: rgb(107, 107, 107); text-decoration: none; display: inline-block;" target="_blank">St.Petersburg office: 198095, Mitrofanevskoe sh., d.2/2, of.3</a></div>
+
+			<div style="margin-top: 5px;">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr style="padding-top: 10px;">
+						<td align="left" style="padding-right: 5px; text-align: center;"><a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="http://www.behance.net/site_elite" rel="noopener noreferrer" style="color: rgb(153, 0, 153);" target="_blank"><img height="16" src="https://resize.yandex.net/mailservice?url=https://s3.amazonaws.com/images.wisestamp.com/social_icons/square/behance.png&amp;proxy=yes&amp;key=b0fa143b9e5e8c51cf88c7dbe561926d" style="border-radius: 0px; border: 0px; height: 16px; width: 16px;" width="16" /></a></td>
+						<td align="left" style="padding-right: 5px; text-align: center;"><a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="http://twitter.com/site_elite" rel="noopener noreferrer" style="color: rgb(153, 0, 153);" target="_blank"><img height="16" src="https://resize.yandex.net/mailservice?url=https://s3.amazonaws.com/images.wisestamp.com/social_icons/square/twitter.png&amp;proxy=yes&amp;key=1c7942a83dbf64f493edaed22730abaa" style="border-radius: 0px; border: 0px; height: 16px; width: 16px;" width="16" /></a></td>
+						<td align="left" style="padding-right: 5px; text-align: center;"><a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="https://vk.com/sozdaniesajtovtver" rel="noopener noreferrer" style="color: rgb(153, 0, 153); font-size: medium;" target="_blank"><img height="16" src="https://resize.yandex.net/mailservice?url=https://s3.amazonaws.com/images.wisestamp.com/social_icons/square/vkontakte.png&amp;proxy=yes&amp;key=2fc6b46d6aa064364040dddb60350f84" style="border-radius: 0px; border: 0px; height: 16px; width: 16px;" width="16" /></a></td>
+						<td align="left" style="padding-right: 5px; text-align: center;"><a class="daria-goto-anchor" data-orig-="" data-vdir-="" href="http://www.instagram.com/siteelite/" rel="noopener noreferrer" style="color: rgb(153, 0, 153);" target="_blank"><img height="16" src="https://resize.yandex.net/mailservice?url=https://s3.amazonaws.com/images.wisestamp.com/social_icons/square/instagram.png&amp;proxy=yes&amp;key=34ecaac6ebe4b6415eb3b02fa41a2b50" style="border-radius: 0px; border: 0px; height: 16px; width: 16px;" width="16" /></a></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>

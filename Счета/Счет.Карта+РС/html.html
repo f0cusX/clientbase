@@ -53,7 +53,8 @@
 </table>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<h1>Счет № {$Номер}&nbsp; &nbsp;от {$Дата выставления}</h1>
+{$nomer = (int){$Номер}|regex_replace:'/[[:space:]]/':'' }
+<h1>Счет № {$nomer}&nbsp; &nbsp;от {$Дата выставления}</h1>
 <p><font color="#666666">Плательщик</font> {if {$На кого.Вид} == 'Юр.лицо' } {$На кого.Юридическое название}{/if}{if {$На кого.Вид} == 'Физ.лицо' } {$На кого.ФИО}{/if}<br>
 {if {$Наша компания.Вид} == 'Юр.лицо'}
 	 <font color="#666666">Получатель</font> {$Наша компания.Юридическое название компании}
@@ -67,7 +68,7 @@
 			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
 				<p class="western" lang="ru-RU"><b>№</b></p>
 			</td>
-			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="340">
+			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
 				<p class="western" lang="ru-RU"><b>Услуга</b></p>
 			</td>
 			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
@@ -76,7 +77,7 @@
 			<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
 				<p class="western" lang="ru-RU"><b>Количество</b></p>
 			</td>
-			<td bgcolor="#e6e6e6" style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="86">
+			<td bgcolor="#e6e6e6" style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
 				<p class="western" lang="ru-RU"><b>Сумма</b></p>
 			</td>
 		</tr>
@@ -87,7 +88,7 @@
 			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
 				<p class="western" lang="ru-RU">{$smarty.foreach.Позиции счета.iteration}</p>
 			</td>
-			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="340">
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
 				<p class="western" lang="ru-RU">{if {$Выбор из прайс-листа} == 'Нет' } {$Позиции счета.Наименование}{/if}{if {$Выбор из прайс-листа} == 'Да' } {$Позиции счета.Наименование из прайс-листа}{/if}</p>
 			</td>
 			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
@@ -96,7 +97,7 @@
 			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
 				<p class="western" lang="ru-RU">{$Позиции счета.Кол-во}</p>
 			</td>
-			<td style="border: 1px solid #000000; padding: 0in 0.08in" width="86">
+			<td style="border: 1px solid #000000; padding: 0in 0.08in" width="90">
 				<p class="western" lang="ru-RU">{$Позиции счета.Итого}</p>
 			</td>
 		</tr>
