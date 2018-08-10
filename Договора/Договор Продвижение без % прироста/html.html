@@ -178,6 +178,13 @@
 </table>
 <p style="text-align: right;">Дата подписи: _______________&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
+{if {$Акт дизайна} != ''}
+	<pagebreak>
+	<div class="design">
+		{$Акт дизайна}
+	</div>
+{/if}
+
 {if {$Смета} != ''} 
 	<pagebreak>
 	<div class="smeta">

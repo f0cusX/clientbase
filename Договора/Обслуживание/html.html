@@ -178,13 +178,19 @@
 </table>
 <p style="text-align: right;">Дата подписи: _______________&nbsp; &nbsp; &nbsp;&nbsp;</p>
 
+{if {$Акт дизайна} != ''}
+	<pagebreak>
+	<div class="design">
+		{$Акт дизайна}
+	</div>
+{/if}
+
 {if {$Смета} != ''} 
 	<pagebreak>
 	<div class="smeta">
 		{$Смета}
 	</div>
 {/if}
-
 <htmlpagefooter name="myFooter">
 	<p style="text-align: right; padding-bottom: 5mm;">____________________/Исполнитель&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ____________________/Заказчик&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
 	<p style="text-align: center;"><font face="Tahoma, sans-serif" style="font-size: 8pt;">{if {$Наша компания.Город} == "Москва"}Black Mamonts{else}Студия «SITE-ELITE»{/if}. {if {$Наша компания.Город} == "Тверь"}Тверь, переулок Свободный, д. 3, корп. 2, оф. 8{else}{$Наша компания.Адрес}{/if}</font></p>
