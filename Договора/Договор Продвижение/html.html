@@ -201,6 +201,13 @@
 <p>У3 - позиция третьего ключевого запроса в выдаче по итогам продвижения, начиная со 2-го месяца продвижения</p>
 <p>&nbsp; &nbsp; &nbsp; &nbsp;и т.д. до - Уn в зависимости от количества продвигаемых запросов.</p>
 
+{if {$Смета} != ''} 
+	<pagebreak>
+	<div class="smeta">
+		{$Смета}
+	</div>
+{/if}
+
 <htmlpagefooter name="myFooter">
 	<p style="text-align: right; padding-bottom: 5mm;">____________________/Исполнитель&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ____________________/Заказчик&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
 	<p style="text-align: center;"><font face="Tahoma, sans-serif" style="font-size: 8pt;">{if {$Наша компания.Город} == "Москва"}Black Mamonts{else}Студия «SITE-ELITE»{/if}. {if {$Наша компания.Город} == "Тверь"}Тверь, переулок Свободный, д. 3, корп. 2, оф. 8{else}{$Наша компания.Адрес}{/if}</font></p>
