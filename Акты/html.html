@@ -55,9 +55,16 @@
 		{$startText = "выполненные работы (оказанные услуги) по {$domen}удовлетворяют условиям Договора."}
 	{/if}
 	{$nomer = (int){$Номер}|regex_replace:'/[[:space:]]/':'' }
-	{$nomerDogovora = (int){$Номер Договора.Номер}|regex_replace:'/[[:space:]]/':'' }
+
+	{if {$Номер Соглашения.Номер} > 0}
+		{$nomerSogl = (int){$Номер Соглашения.Номер}|regex_replace:'/[[:space:]]/':'' }
+		{$textTypeDoc = "к доп. соглашению № {$nomerSogl} от {$Номер Соглашения.Дата}" }
+	{else}
+		{$nomerDogovora = (int){$Номер Договора.Номер}|regex_replace:'/[[:space:]]/':'' }
+		{$textTypeDoc = "к договору № {$nomerDogovora} от {$Номер Договора.Дата договора}" }
+	{/if}
 	<span style="font-size:11pt;">
-		<strong class="dogovorTitle">АКТ {$typeDoc} № {$nomer}</strong> <br>к договору № {$nomerDogovora} от {$Номер Договора.Дата договора}
+		<strong class="dogovorTitle">АКТ {$typeDoc} № {$nomer}</strong> <br>{$textTypeDoc}
 	</span>
 </p>
 <table border="0" width="100%">
