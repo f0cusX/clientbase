@@ -1,0 +1,147 @@
+<htmlpageheader name="myHeader">
+	<div style="text-align: center;">{$Наша компания.Лого}</div>
+</htmlpageheader>
+<p style="text-align: center;">
+	<span style="font-size:12pt;">
+		{$nomer = (int){$Номер}|regex_replace:'/[[:space:]]/':'' }
+		<strong>Договор №&nbsp;{$nomer}</strong>
+	</span>
+</p>
+<table border="0" width="100%">
+	<tbody>
+		<tr>
+			<td style="border:none;">{$Дата договора}</td>
+			<td align="right" style="border:none;">г. {$Наша компания.Город}</td>
+		</tr>
+	</tbody>
+</table>
+<p>&emsp;{if {$Компания.Вид} == "ИП"}{$Компания.Название}, именуемый в дальнейшем «Заказчик», в лице {$Компания.В лице...}, действующего на основании Свидетельства о регистрации с одной стороны{else}{if {$Компания.Вид} == "Юр.лицо"}{$Компания.Юридическое название}, именуемое в дальнейшем «Заказчик», в лице {$Компания.В лице должность} {$Компания.В лице...}, действующего на основании Устава с одной стороны{else}{$Компания.ФИО}, {if {$Компания.Пол} == "Мужской"}именуемый{else}именуемая{/if} в дальнейшем «Заказчик»{/if} {/if} и {$Компания.Наша компания} (ОГРНИП:{$Наша компания.ОГРН} ИНН:{$Наша компания.ИНН} от 27.01.2012 г.), именуемый в дальнейшем «Исполнитель», с другой стороны, вместе именуемые «Стороны», заключили настоящий Договор о нижеследующем.</p>
+{$Логотип контент}
+<h1>9. ЮРИДИЧЕСКИЕ АДРЕСА, БАНКОВСКИЕ РЕКВИЗИТЫ И ПОДПИСИ СТОРОН</h1>
+<table cellpadding="7" cellspacing="0" width="660" class="rek">
+	<colgroup>
+		<col width="330" />
+		<col width="330" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<td valign="top" style="border: none; padding: 0px;" width="330">
+				<table border="0" width="100%" cellspacing="0" cellpadding="0">
+					<tbody>
+						<tr>
+							<td align="center" style="border: none; padding-bottom: 10px;"><b>Исполнитель:</b><br />
+								<b><i>ИП Варич Мария Сергеевна</i></b>
+							</td>
+						</tr>
+						<tr>
+							<td style="border: none;">ОГРНИП: {$Наша компания.ОГРН}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">ИНН: {$Наша компания.ИНН}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">Р/c:&nbsp;{$Наша компания.Расчетный счет}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">К/c:&nbsp;{$Наша компания.Кор. счет}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">БИК:&nbsp;{$Наша компания.БИК}</td>
+						</tr>
+						<tr>
+							<td style="border: none;"><b>Получатель</b>:&nbsp;{$Наша компания.Юридическое название компании}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">Банк получателя:&nbsp;{$Наша компания.Банк}</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td valign="top" style="border: none; padding: 0px;" width="330">
+				<table border="0" width="100%">
+					<tbody>
+						<tr>
+							<td align="center" style="border: none; padding-bottom: 10px;"><b>Заказчик:</b><br />
+								<b><i>{if {$Компания.Вид} == "Физ.лицо"}{$Компания.ФИО}{else}{$Компания.Юридическое название}{/if}</i></b>
+							</td>
+						</tr>
+						{if {$Компания.Вид} != "Физ.лицо"}
+							<tr>
+								<td style="border: none;">Юридический адрес: {$Компания.Юридический адрес}</td>
+							</tr>
+							<tr>
+								<td style="border: none;">ИНН:&nbsp;{$Компания.ИНН}</td>
+							</tr>
+							{if {$Компания.Вид} == "Юр.лицо"}
+								<tr>
+									<td style="border: none;">КПП:&nbsp;{$Компания.КПП}</td>
+								</tr>
+							{/if}
+							<tr>
+								<td style="border: none;">ОГРН:&nbsp;{$Компания.ОГРН}</td>
+							</tr>
+						{else}
+							{if {$Компания.Серия паспорта} == '' || {$Компания.Номер паспорта} == '' || {$Компания.Кем выдан} == '' || {$Компания.Дата выдачи} == '' || {$Компания.Адрес прописки} == ''}
+								<tr>
+									<td style="border: none;">
+										{$Компания.Паспортные данные}
+									</td>
+								</tr>
+							{else}
+								<tr>
+									<td style="border: none;">Паспорт: {$Компания.Серия паспорта} {$Компания.Номер паспорта} <br>{$Компания.Кем выдан}, {$Компания.Дата выдачи} <br></td>
+								</tr>
+								<tr>
+									<td style="border: none;">Дата рождения: {$Компания.День рождения}</td>
+								</tr>
+								<tr>
+									<td style="border: none;">рег. {$Компания.Адрес прописки}</td>
+								</tr>
+							{/if}
+							
+						{/if}
+						<tr>
+							<td style="border: none;">Тел.&nbsp;{$Компания.Телефон}</td>
+						</tr>
+						<tr>
+							<td style="border: none;">&nbsp;</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+	<tfooter cellpadding="7" cellspacing="0" width="660">
+		<tr valign="top" style="border: none;">
+			<td style="border: none;" width="330">____________________________ /{$Наша компания.Руководитель}</td>
+			<td style="border: none;" width="330">_________________________ /{$Компания.Сокращенное ФИО}</td>
+		</tr>
+	</tfooter>
+</table>
+<p style="text-align: right;">Дата подписи: _______________&nbsp; &nbsp; &nbsp;&nbsp;</p>
+
+{if {$Акт дизайна} != ''}
+	<pagebreak>
+	<div class="design">
+		{$Акт дизайна}
+	</div>
+{/if}
+
+{if {$Смета} != ''} 
+	<pagebreak>
+	<div class="smeta">
+		{$Смета}
+	</div>
+{/if}
+
+<htmlpagefooter name="myFooter">
+	<p style="text-align: right; padding-bottom: 5mm;">____________________/Исполнитель&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ____________________/Заказчик&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+	<p style="text-align: center;"><font face="Tahoma, sans-serif" style="font-size: 8pt;">{if {$Наша компания.Город} == "Москва"}Black Mamonts{else}Студия «SITE-ELITE»{/if}. {if {$Наша компания.Город} == "Тверь"}Тверь, переулок Свободный, д. 3, корп. 2, оф. 8{else}{$Наша компания.Адрес}{/if}</font></p>
+	<p align="CENTER" lang="en-US"><font face="Tahoma, sans-serif" style="font-size: 8pt;">тел.: {$Наша компания.Телефон}</font></p>
+	
+	{if {$Наша компания.Город} == "Москва"}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.bmamonts.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@bmamonts.ru</u> </font></p>
+	{else}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.st-lt.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@st-lt.ru</u> </font></p>
+	{/if}
+</htmlpagefooter>

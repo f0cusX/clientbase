@@ -5,7 +5,7 @@
 	{$nomer = (int){$Номер}|regex_replace:'/[[:space:]]/':'' }
 	{$nomerDogovora = (int){$К Договору.Номер}|regex_replace:'/[[:space:]]/':'' }
 	<span style="font-size:11pt;">
-		<strong class="dogovorTitle">ДОПОЛНИТЕЛЬНОЕ СОГЛАШЕНИЕ № {$nomer}<br>к договору № {$nomerDogovora}</strong> 
+		<strong class="dogovorTitle">ДОПОЛНИТЕЛЬНОЕ СОГЛАШЕНИЕ № {$nomer}<br>к договору № {$nomerDogovora} от {$К Договору.Дата договора}</strong> 
 	</span>
 </p>
 <table border="0" width="100%">
