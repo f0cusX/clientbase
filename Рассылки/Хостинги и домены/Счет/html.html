@@ -1,0 +1,212 @@
+<htmlpageheader name="myHeader">
+	<div style="text-align: center;">{$Наша компания.Лого}</div>
+</htmlpageheader>
+<table cellpadding="2" cellspacing="0" width="660">
+	<colgroup>
+		<col width="380" />
+		<col width="50" />
+		<col width="230" />
+	</colgroup>
+	<tbody>
+		<tr>
+			<td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">ИНН</font> {$Наша компания.ИНН} <font color="#666666">ОГРНИП</font> {$Наша компания.ОГРН}</p>
+			</td>
+			<td rowspan="2" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" valign="BOTTOM" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">Сч. №</font></p>
+			</td>
+			<td rowspan="2" style="border: 1px solid #000000; padding: 0.02in" valign="BOTTOM" width="187">
+				<p class="western" lang="ru-RU">{$Наша компания.Расчетный счет}</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">Получатель</font><br />
+				{if {$Наша компания.Вид} == 'Юр.лицо'}
+					 {$Наша компания.Юридическое название компании}</p>
+				{else}
+					 {$Наша компания.Физическое лицо}</p>
+				{/if}
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="2" style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="380">
+				<p class="western" lang="ru-RU"><font color="#666666">Банк получателя </font><br />
+				<font color="#000000">{$Наша компания.Банк}</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">БИК</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in" width="230">
+				<p class="western" lang="ru-RU">{$Наша компания.БИК}</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in" width="50">
+				<p class="western" lang="ru-RU"><font color="#666666">Сч. №</font></p>
+			</td>
+			<td style="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in" width="230">
+				<p class="western" lang="ru-RU">{$Наша компания.Кор. счет}</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+{foreach from="{$Счета}" name="Счета" item=subtable}
+	{if {$smarty.foreach.Счета.iteration} == 1}
+		{$nomer = (int){$Счета.Номер}|regex_replace:'/[[:space:]]/':'' }
+		<h1>Счет № {$nomer}&nbsp; &nbsp;от {$Счета.Дата выставления}</h1>
+		<p><font color="#666666">Плательщик</font> {if {$Компания.Вид} == "ИП"} {$Компания.Название}{/if}{if {$Компания.Вид} == 'Юр.лицо' } {$Компания.Юридическое название}{/if}{if {$Компания.Вид} == 'Физ.лицо' } {$Компания.ФИО}{/if}<br>
+		{if {$Наша компания.Вид} == 'Юр.лицо'}
+			 <font color="#666666">Получатель</font> {$Наша компания.Юридическое название компании}
+		{else}
+			 <font color="#666666">Получатель</font> {$Наша компания.Физическое лицо}
+		{/if}
+		</p>
+		<table cellpadding="7" cellspacing="0" width="660" style="border-bottom: 1px solid #000000;">
+			<tbody>
+				<tr valign="TOP">
+					<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+						<p class="western" lang="ru-RU"><b>№</b></p>
+					</td>
+					<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
+						<p class="western" lang="ru-RU"><b>Услуга</b></p>
+					</td>
+					<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+						<p class="western" lang="ru-RU"><b>Цена</b></p>
+					</td>
+					<td bgcolor="#e6e6e6" style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+						<p class="western" lang="ru-RU"><b>Количество</b></p>
+					</td>
+					<td bgcolor="#e6e6e6" style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
+						<p class="western" lang="ru-RU"><b>Сумма</b></p>
+					</td>
+				</tr>
+				
+				{if {$Услуга}|strpos:'Хостинг' !== false}
+					<tr valign="TOP">
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+							<p class="western" lang="ru-RU">1</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
+							<p class="western" lang="ru-RU">Хостинг{if {$Размер хостинга} != 0}({$Размер хостинга} Мб){/if}, продление на 1 год</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+							<p class="western" lang="ru-RU">{$Стоимость хостинга}</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+							<p class="western" lang="ru-RU">1</p>
+						</td>
+						<td style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
+							<p class="western" lang="ru-RU">{$Стоимость хостинга}</p>
+						</td>
+					</tr>
+				{/if}
+
+				{if {$Услуга}|strpos:'Домен' !== false}
+					<tr valign="TOP">
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+							<p class="western" lang="ru-RU">{if {$Услуга}|strpos:'Хостинг' !== false}2{else}1{/if}</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
+							<p class="western" lang="ru-RU">Домен({$Домен}), продление на 1 год</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+							<p class="western" lang="ru-RU">{$Стоимость домена}</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+							<p class="western" lang="ru-RU">1</p>
+						</td>
+						<td style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
+							<p class="western" lang="ru-RU">{$Стоимость домена}</p>
+						</td>
+					</tr>
+				{/if}
+
+				{if {$Услуга}|strpos:'Обслуживание' !== false}
+					<tr valign="TOP">
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+							<p class="western" lang="ru-RU">
+								{if {$Услуга}|strpos:'Хостинг' !== false && {$Услуга}|strpos:'Домен' !== false}
+									3
+								{else}
+									{if {$Услуга}|strpos:'Хостинг' !== false || {$Услуга}|strpos:'Домен' !== false}
+										2
+									{else}
+										1
+									{/if}
+								{/if}
+							</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
+							<p class="western" lang="ru-RU">Обслуживание(создание резервных копий)</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+							<p class="western" lang="ru-RU">{$Стоимость обслуживания}</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+							<p class="western" lang="ru-RU">1</p>
+						</td>
+						<td style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
+							<p class="western" lang="ru-RU">{$Стоимость обслуживания}</p>
+						</td>
+					</tr>
+				{/if}
+
+				{if {$Услуга}|strpos:'Корп. почта' !== false}
+					<tr valign="TOP">
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="18">
+							<p class="western" lang="ru-RU">
+								{if {$Услуга}|strpos:'Хостинг' !== false && {$Услуга}|strpos:'Домен' !== false && {$Услуга}|strpos:'Обслуживание' !== false}
+									4
+								{else}
+									{if {$Услуга}|strpos:'Хостинг' !== false || {$Услуга}|strpos:'Домен' !== false || {$Услуга}|strpos:'Обслуживание' !== false}
+										{if {$Услуга}|strpos:'Хостинг' !== false || {$Услуга}|strpos:'Домен' !== false}
+											{if {$Услуга}|strpos:'Хостинг' !== false && {$Услуга}|strpos:'Домен' !== false}
+												3
+											{else}
+												{if {$Услуга}|strpos:'Обслуживание' !== false}
+													3
+												{else}
+													2
+												{/if}
+											{/if}
+										{else}
+											{if {$Услуга}|strpos:'Обслуживание' !== false}
+												2
+											{/if}
+										{/if}
+									{else}
+										1
+									{/if}
+								{/if}
+							</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="336">
+							<p class="western" lang="ru-RU">Корпоративная почта</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="93">
+							<p class="western" lang="ru-RU">{$Стоимость корп.почты}</p>
+						</td>
+						<td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0in" width="50">
+							<p class="western" lang="ru-RU">1</p>
+						</td>
+						<td style="border: 1px solid #000000; border-bottom: 0; padding: 0in 0.08in" width="90">
+							<p class="western" lang="ru-RU">{$Стоимость корп.почты}</p>
+						</td>
+					</tr>
+				{/if}
+				
+			</tbody>
+		</table>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p class="arial"><i><b>Всего к оплате: {SumFormat value="{$Счета.Сумма}" digits=2} р.<br>
+		{SumPropis value="{$Счета.Сумма}" caps=1}<br>
+		НДС не облагается</b></i></p>
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+		<p>Директор _________________________________ {$Наша компания.Руководитель}</p>
+	{/if}
+{/foreach}

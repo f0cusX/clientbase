@@ -1,0 +1,69 @@
+// Дата договора
+
+<htmlpageheader name="myHeader">
+	<div style="text-align: center;">{$Наша компания.Лого}</div>
+</htmlpageheader>
+{foreach from="{$Акты}" name="Акты" item=subtable}
+
+
+	{if {$Акты.Тип акта} == 'Продвижение сайта'}
+		<p style="text-align: center;">
+			{if {$Акты.Сайт} != ''}
+				{$site = {$Акты.Сайт}}
+			{else}
+				{$site = {$Сайт}}
+			{/if}
+
+
+			{$typeDoc = 'выполненных работ'}
+			{$startText = "выполненные работы (оказанные услуги) по продвижению веб-сайта, размещенного по адресу {$site}{if {$Акты.Начало периода} > 0 && {$Акты.Конец периода} > 0} в период {$Акты.Начало периода} - {$Акты.Конец периода}{/if}, удовлетворяют условиям Договора на продвижение сайта."}
+
+			{$nomer = (int){$Акты.Номер}|regex_replace:'/[[:space:]]/':'' }
+
+			{$nomerDogovora = (int){$Акты.Номер Договора}|regex_replace:'/[[:space:]]/':'' }
+			{$textTypeDoc = "к договору № {$nomerDogovora} от {$Акты.Дата}"}
+
+			<span style="font-size:11pt;">
+				<strong class="dogovorTitle">АКТ {$typeDoc} № {$nomer}</strong> <br>{$textTypeDoc}
+			</span>
+		</p>
+		<table border="0" width="100%">
+			<tbody>
+				<tr>
+					<td style="border:none;">{$Акты.Дата}</td>
+					<td align="right" style="border:none;">г. {$Наша компания.Город}</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>&emsp;{if {$Вид} == "ИП"}{$Название}, именуемый в дальнейшем «Заказчик», в лице {$В лице...}, действующего на основании Свидетельства о регистрации с одной стороны{else}{if {$Вид} == "Юр.лицо"}{$Юридическое название}, именуемое в дальнейшем «Заказчик», в лице {$В лице должность} {$В лице...}, действующего на основании Устава с одной стороны{else}{$ФИО}, {if {$Пол} == "Мужской"}именуемый{else}именуемая{/if} в дальнейшем «Заказчик»{/if} {/if} и {$Наша компания.Юридическое название компании} (ОГРНИП:{$Наша компания.ОГРН} ИНН:{$Наша компания.ИНН} от 27.01.2012 г.), именуемый в дальнейшем «Исполнитель», с другой стороны, вместе именуемые «Стороны», пришли к согласию и составили настоящий Акт о том, что {$startText}</p>
+		<p>Договорная цена выполненных работ (оказанных услуг) составляет: <i><u>{$Акты.Сумма} руб. ({SumPropis value="{$Акты.Сумма}" caps=1})</u></i>.<p>
+
+		<p>Акт {$typeDoc}, заверенный подписями Сторон, свидетельствует об отсутствии претензий и замечаний у Заказчика к Результату всех работ.</p>
+		<p>Настоящий Акт составлен в 2-х подлинных экземплярах. Один находится у «Заказчика», другой у «Исполнителя».</p>
+		<p>
+			<div class="last">
+				В течение 5 рабочих дней с момента получения Акта сдачи-приема Заказчик принимает работы и подписывает оставшиеся 2 копии Акта сдачи-приема, одну из которых оставляет себе, а другую возвращает Исполнителю.<br>
+				В случае отказа в подписании Акта сдачи-приема Заказчик предоставляет Исполнителю мотивированный письменный отказ в приемке работ. Мотивированный отказ должен содержать перечень несоответствий Результата всех работ и Техническому Заданию.<br>
+				В случае невозвращения Заказчиком подписанного Акта сдачи-приема работ по истечении 5 рабочих дней и не предоставления мотивированного отказа в такие же сроки, Стороны считают Результат всех работ принятым Заказчиком.<br>
+			</div>
+		</p>
+		<p></p>
+		<p></p>
+		<p></p>
+
+		<p style="text-align: right; padding-bottom: 5mm; padding-top: 5mm;">____________________/Исполнитель&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ____________________/Заказчик&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+		{break}
+	{/if}
+{/foreach}
+
+<htmlpagefooter name="myFooter">
+	
+	<p style="text-align: center;"><font face="Tahoma, sans-serif" style="font-size: 8pt;">{if {$Наша компания.Город} == "Москва"}Black Mamonts{else}Студия «SITE-ELITE»{/if}. {if {$Наша компания.Город} == "Тверь"}Тверь, переулок Свободный, д. 3, корп. 2, оф. 8{else}{$Наша компания.Адрес}{/if}</font></p>
+	<p align="CENTER" lang="en-US"><font face="Tahoma, sans-serif" style="font-size: 8pt;">тел.: {$Наша компания.Телефон}</font></p>
+	
+	{if {$Наша компания.Город} == "Москва"}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.bmamonts.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@bmamonts.ru</u> </font></p>
+	{else}
+		<p align="CENTER"><font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"><u>www.st-lt.ru</u> </font> <font face="Tahoma, sans-serif" style="font-size: 8pt;">e-mail:</font> <font face="Tahoma, sans-serif" style="font-size: 8pt; color: blue;"> <u>info@st-lt.ru</u> </font></p>
+	{/if}
+</htmlpagefooter>

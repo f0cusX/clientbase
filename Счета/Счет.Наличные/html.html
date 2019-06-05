@@ -132,7 +132,7 @@
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="LEFT" bgcolor="#FFFFFF"><font color="#000000" size="1">Основание:</font></td>
-			<td align="LEFT" bgcolor="#FFFFFF" colspan="4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font size="1">Оказание услуг по Договору № 1057 от </font></b></td>
+			<td align="LEFT" bgcolor="#FFFFFF" colspan="4" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font size="1">Оказание услуг по Договору № {$По договору.Номер}</font></b></td>
 			<td align="LEFT" bgcolor="#FFFFFF" style="border-right: 1px solid #000000">&nbsp;</td>
 		</tr>
 		<tr>
@@ -142,7 +142,7 @@
 			<td align="LEFT" bgcolor="#FFFFFF">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
-			<td align="LEFT" bgcolor="#FFFFFF" colspan="5" style="border-bottom: 1px solid #000000"><b><font color="#000000" size="1">05.03.2018г. - Создание сайта на готом дизайн-макете </font></b></td>
+			<td align="LEFT" bgcolor="#FFFFFF" colspan="5" style="border-bottom: 1px solid #000000"><b><font color="#000000" size="1">от {$По договору.Дата договора}г. - {foreach from="{$Позиции счета}" name="Позиции счета" item=subtable}{$Позиции счета.Наименование}{/foreach}</font></b></td>
 			<td align="LEFT" bgcolor="#FFFFFF" style="border-right: 1px solid #000000">&nbsp;</td>
 		</tr>
 		<tr>
@@ -156,7 +156,7 @@
 			<td align="LEFT" bgcolor="#FFFFFF">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
-			<td align="LEFT" bgcolor="#FFFFFF" colspan="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font color="#000000" size="1">(остаток 50%)</font></b></td>
+			<td align="LEFT" bgcolor="#FFFFFF" colspan="5" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font color="#000000" size="1"></font></b></td>
 			<td align="LEFT" bgcolor="#FFFFFF" style="border-right: 1px solid #000000">&nbsp;</td>
 		</tr>
 		<tr>
@@ -282,7 +282,7 @@
 		</tr>
 		<tr>
 			<td align="LEFT" bgcolor="#FFFFFF" height="20" style="border-left: 1px solid #000000"><font color="#000000" size="1">Основание: </font></td>
-			<td align="LEFT" bgcolor="#FFFFFF" colspan="7" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font color="#000000" size="1">Оказание услуг по Договору № 1057 от 05.03.2018г. - Создание сайта на готом </font></b></td>
+			<td align="LEFT" bgcolor="#FFFFFF" colspan="7" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000"><b><font color="#000000" size="1">Оказание услуг по Договору № {$По договору.Номер} от {$По договору.Дата договора}г. - </font></b></td>
 			<td align="JUSTIFY" bgcolor="#FFFFFF">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" colspan="2" sdnum="1049;0;DD.MM.YYYY" style="border-bottom: 1px solid #000000"><b><font color="#000000" size="1">{$Дата выставления}</font></b></td>
@@ -292,7 +292,7 @@
 			<td align="LEFT" bgcolor="#FFFFFF" style="border-right: 1px solid #000000">&nbsp;</td>
 		</tr>
 		<tr>
-			<td align="LEFT" bgcolor="#FFFFFF" colspan="8" height="20" style="border-bottom: 1px solid #000000; border-left: 1px solid #000000"><b><font color="#000000" size="1">дизайн-макете (остаток 50%)</font></b></td>
+			<td align="LEFT" bgcolor="#FFFFFF" colspan="8" height="20" style="border-bottom: 1px solid #000000; border-left: 1px solid #000000"><b><font color="#000000" size="1">{foreach from="{$Позиции счета}" name="Позиции счета" item=subtable}{$Позиции счета.Наименование}{/foreach}</font></b></td>
 			<td align="JUSTIFY" bgcolor="#FFFFFF">&nbsp;</td>
 			<td align="CENTER" bgcolor="#FFFFFF" valign="TOP">&nbsp;</td>
 			<td align="JUSTIFY" bgcolor="#FFFFFF">&nbsp;</td>
